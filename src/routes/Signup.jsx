@@ -18,7 +18,7 @@ const Signup = () => {
     setError('')
     try {
       await registrese(correo, contraseña, apellidos, nombre)
-      navigate('/')
+
     } catch (e) {
       setError(e.message)
       console.log(e.message)

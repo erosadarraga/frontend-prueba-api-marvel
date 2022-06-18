@@ -72,12 +72,14 @@ export const AuthContextProvider = ({ children }) => {
                         contraseña: contraseña
                     }),
                 }
+
             );
-            console.log(res.ok, res.status, res + "hola");
+            console.log(res.ok, res.status, res);
 
             const { token } = await res.json();
-
+            navigate('/signin')
         } catch (error) {
+            navigate('/signup')
             console.log(error);
         }
     };
