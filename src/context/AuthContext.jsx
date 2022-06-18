@@ -22,8 +22,9 @@ export const AuthContextProvider = ({ children }) => {
     const iniciarSesion = async (correo, contraseña) => {
         try {
             console.log(correo, contraseña);
-            const res = await fetch(
-                "http://localhost:5000/api/v1/auth/login",
+            // const res = await fetch("http://localhost:5000/api/v1/auth/login",
+            const res = await fetch("https://marvelauthapi.onrender.com/api/v1/auth/login",
+
                 {
                     method: "POST",
                     headers: {
@@ -57,8 +58,8 @@ export const AuthContextProvider = ({ children }) => {
         try {
             cerrarSession()
             console.log(correo, contraseña, nombre, apellidos);
-            const res = await fetch(
-                "http://localhost:5000/api/v1/auth/register",
+            // const res = await fetch("http://localhost:5000/api/v1/auth/register",
+            const res = await fetch("https://marvelauthapi.onrender.com/api/v1/auth/register",
                 {
                     method: "POST",
                     headers: {
@@ -83,9 +84,11 @@ export const AuthContextProvider = ({ children }) => {
 
     const cerrarSession = async () => {
         try {
-            const res = await fetch("http://localhost:5000/api/v1/auth/logout", {
-                method: "GET",
-            });
+            // const res = await fetch("http://localhost:5000/api/v1/auth/logout",
+            const res = await fetch("https://marvelauthapi.onrender.com/api/v1/auth/logout",
+                {
+                    method: "GET",
+                });
             localStorage.removeItem("correo")
             localStorage.removeItem("userName")
             localStorage.removeItem("token")
@@ -103,14 +106,16 @@ export const AuthContextProvider = ({ children }) => {
 
     const informacionUsuario = async (token) => {
         try {
-            const res = await fetch("http://localhost:5000/api/v1/auth/protected", {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${token}`,
-                },
+            // const res = await fetch("http://localhost:5000/api/v1/auth/protected",
+            const res = await fetch("https://marvelauthapi.onrender.com/api/v1/auth/protected",
+                {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${token}`,
+                    },
 
-            });
+                });
             console.log(res.ok, res.status);
             const data = await res.json();
 
