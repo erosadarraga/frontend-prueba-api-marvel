@@ -16,7 +16,7 @@ const Signin = () => {
     setError('');
     try {
       await iniciarSesion(correo, contraseña);
-      navigate('/home')
+
     } catch (e) {
       setError(e.message);
       console.log(e.message);

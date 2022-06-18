@@ -49,7 +49,7 @@ export const AuthContextProvider = ({ children }) => {
                     dataLocalStorage()
                 }
             }
-
+            navigate('/home')
         } catch (error) {
             console.log(error);
         }
